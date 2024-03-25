@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Pip Help"
+pip freeze
+python --version
+
 echo "BUILD START"
 python -m pip install -r requirements.txt
 
