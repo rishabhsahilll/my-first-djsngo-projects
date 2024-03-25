@@ -5,10 +5,6 @@ echo "Pip Help"
 python3.9 -m pip freeze
 python3.9 --version
 
-echo "New Env"
-python3.9 -m venv venvpy
-venvpy\Scripts\activate
-
 # Starting build process
 echo "BUILD START"
 
@@ -21,19 +17,17 @@ python3.9 -m pip install -r requirements.txt || { echo "Failed to install depend
 # source myenv/bin/activate
 python3.9 pip install urllib3==1.26.7
 
-# Step 1: Python Version Check
-python_version=$(python3 --version | awk '{print $2}')
-if [[ ${python_version%%.*} -lt 3 || (${python_version%%.*} -eq 3 && ${python_version#*.} -lt 6) ]]; then
-    echo "Error: Python version must be 3.6 or above."
-    exit 1
-fi
+# # Step 1: Python Version Check
+# python_version=$(python3 --version | awk '{print $2}')
+# if [[ ${python_version%%.*} -lt 3 || (${python_version%%.*} -eq 3 && ${python_version#*.} -lt 6) ]]; then
+#     echo "Error: Python version must be 3.6 or above."
+#     exit 1
 
 # Step 2: OpenSSL Version Check
 openssl_version=$(openssl version | awk '{print $2}')
 if [[ "${openssl_version}" < "1.1.1" ]]; then
     echo "Error: OpenSSL version must be 1.1.1 or above."
     exit 1
-fi
 
 # Step 3: Update Dependencies
 python3.9 pip install --upgrade urllib3 cloudinary
