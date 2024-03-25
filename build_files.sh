@@ -5,6 +5,10 @@ echo "Pip Help"
 python3.9 -m pip freeze
 python3.9 --version
 
+echo "New Env"
+python3.9 -m venv venvpy
+venvpy\Scripts\activate
+
 # Starting build process
 echo "BUILD START"
 
