@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R.S</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+  <link rel="stylesheet" href="static/styles/home.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  {% if request.user.id %}
+  {{request.user.username}} <br>
+  <a href="logout">Logout</a><br>
+  <a href="profile">Profile</a><br>
+  <a href="create">Profile Create</a><br>
+  <a href="profileedit">Profile Edit</a><br>
+  {% else %}
+  <!-- <a href="https://front.codes/" class="logo" target="_blank">
+    Logo
+  </a> -->
+  <div class="section">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+        <div class="col-12 text-center align-self-center py-5">
+          <!-- Alert box -->
+          <div class="alert alert-{{al_msg}} alert-dismissible fade show mt-3" role="alert"  style="display: {% if dis %}{{ dis }} {% else %} none {% endif %};">
+            {{ msg }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <h6 class="mb-0 pb-3 text-capitalize text-white"><span>Log In </span><span>Sign Up</span></h6>
+            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+            <label for="reg-log"></label>
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+                <!-- Login -->
+                <div class="card-front">
+                  <form action="/login" method="POST">
+                    {% csrf_token %}
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3 text-capitalize text-white">Log In</h4>
+                        <div class="form-group">
+                          <input type="text" name="username" class="form-style" placeholder="Username" id="logemail"
+                            autocomplete="off" required>
+                          <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input type="password" name="password" class="form-style" placeholder="Password" id="logpass"
+                            autocomplete="off" required>
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <button type="submit" class="btn mt-4">Login</button>
+                        <p class="mb-0 mt-4 text-center"><a href="/reset" class="link">Forgot your password?</a></p>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- Signup -->
+                <div class="card-back">
+                  <form action="/signup" method="POST">
+                    {% csrf_token %}
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-2 text-capitalize text-white">Sign Up</h4>
+                        <div class="form-group mt-2">
+                          <input type="text" name="username" class="form-style" placeholder="Username" id="logemail"
+                            autocomplete="off" value="{{username}}" required>
+                          <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input type="email" name="email" class="form-style" placeholder="Email" id="logemail"
+                            autocomplete="off" value="{{email}}" required>
+                          <i class="input-icon uil uil-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input type="password" name="password1" class="form-style" placeholder="Password" id="logpass"
+                            autocomplete="off" required>
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input type="password" name="password2" class="form-style" placeholder="Confirm Password"
+                            id="logpass" autocomplete="off" required>
+                          <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <button type="submit" class="btn mt-4">Signup</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  {% endif %}
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
