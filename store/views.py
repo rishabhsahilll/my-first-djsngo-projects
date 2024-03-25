@@ -19,8 +19,10 @@ env = environ.Env()
 # Cloudinary configuration
 cloudinary.config(
     cloud_name="rishabh-insta",
-    api_key=env('IMG_API_KEY'),
-    api_secret=env('IMG_API_SECRET')
+    # api_key=env('IMG_API_KEY'),
+    # api_secret=env('IMG_API_SECRET')
+    api_key='188728799314739',
+    api_secret='Vuog68Ts8G7f1X-pDnd5bd0n480'
 )
 
 # Create your views here.
