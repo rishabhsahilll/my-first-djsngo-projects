@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+# .env file ka path set karein
+env = environ.Env()
+
+# .env file load karein
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,9 +96,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'verceldb',
-        'USER': os.environ.get('DB_USERNAME'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_SERVER'),
+        'USER': env('DB_USERNAME'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_SERVER'),
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
