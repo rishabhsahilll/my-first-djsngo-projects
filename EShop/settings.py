@@ -11,14 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
-import environ
 
 # .env file ka path set karein
-env = environ.Env()
-
-# .env file load karein
-environ.Env.read_env()
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -96,10 +93,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'verceldb',
-        'USER': 'default',
-        'PASSWORD': 'dkYLyqOto26P',
-        'HOST': 'ep-late-cloud-a4ev6831.us-east-1.aws.neon.tech',
-        'PORT': '5432',
+        'USER': os.environ.get('DB_USERNAME'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_SERVER'),
+        'PORT': os.environ.get('DB_PORT'),
         'OPTIONS': {
             'sslmode': 'require',
         }
