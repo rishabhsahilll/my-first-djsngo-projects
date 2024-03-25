@@ -96,11 +96,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'verceldb',
-        # 'USER': env('DB_USERNAME'),
         'USER': 'default',
-        # 'PASSWORD': env('DB_PASSWORD'),
         'PASSWORD': 'dkYLyqOto26P',
-        # 'HOST': env('DB_SERVER'),
         'HOST': 'ep-late-cloud-a4ev6831.us-east-1.aws.neon.tech',
         'PORT': '5432',
         'OPTIONS': {
@@ -108,6 +105,7 @@ DATABASES = {
         }
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -146,9 +144,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Static Files Add
-STATICFILES_DIRS = os.path.join(BASE_DIR, "static")
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
