@@ -25,3 +25,8 @@ echo "Collect Static"
 python3.9 manage.py collectstatic --noinput || { echo "Failed to collect static files"; exit 1; }
 
 echo "Build process completed successfully"
+
+# pip install virtualenv
+# virtualenv myenv
+# source myenv/bin/activate
+pip install urllib3==1.26.7
