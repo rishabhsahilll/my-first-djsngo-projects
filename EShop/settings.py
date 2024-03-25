@@ -96,9 +96,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'verceldb',
-        'USER': env('DB_USERNAME'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_SERVER'),
+        # 'USER': env('DB_USERNAME'),
+        'USER': 'default',
+        # 'PASSWORD': env('DB_PASSWORD'),
+        'PASSWORD': 'dkYLyqOto26P',
+        # 'HOST': env('DB_SERVER'),
+        'HOST': 'ep-late-cloud-a4ev6831.us-east-1.aws.neon.tech',
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
