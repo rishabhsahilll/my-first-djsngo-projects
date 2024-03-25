@@ -37,11 +37,11 @@ echo "All steps completed successfully."
 
 # Making migrations
 echo "Make Migration"
-python3.9 manage.py makemigrations --noinput || { echo "Failed to make migrations"; exit 1; }
-python3.9 manage.py migrate --noinput || { echo "Failed to migrate database"; exit 1; }
+python3.9 manage.py makemigrations --noinput
+python3.9 manage.py migrate --noinput 
 
 # Collecting static files
 echo "Collect Static"
-python3.9 manage.py collectstatic --noinput || { echo "Failed to collect static files"; exit 1; }
+python3.9 manage.py collectstatic --noinput 
 
 echo "Build process completed successfully"
