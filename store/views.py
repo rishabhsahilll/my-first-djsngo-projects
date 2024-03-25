@@ -11,16 +11,12 @@ from django.contrib.auth.decorators import login_required
 import cloudinary
 from cloudinary.uploader import upload
 import os
-import environ
-
-# .env file ka path set karein
-env = environ.Env()
 
 # Cloudinary configuration
 cloudinary.config(
     cloud_name="rishabh-insta",
-    api_key=env('IMG_API_KEY'),
-    api_secret=env('IMG_API_SECRET')
+    api_key=os.environ.get('IMG_API_KEY'),
+    api_secret=os.environ.get('IMG_API_SECRET')
 )
 
 # Create your views here.
