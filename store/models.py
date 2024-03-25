@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 
+# Create your models here.
 class UserDta(models.Model):
     fullname = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
@@ -27,7 +27,7 @@ class UserProfile(models.Model):
     education = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     state_region = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='static/images', default='static/images/ico_def.png')
+    image = models.CharField(max_length=255, default='https://res.cloudinary.com/rishabh-insta/image/upload/v1711364015/media/y4kp4jeyxpfzhtud1mtg.png')  # Default URL
 
     def __str__(self):
         return f"{self.first_name} {self.surname}"
