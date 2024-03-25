@@ -1,17 +1,17 @@
 #!/bin/bash
 
 echo "Pip Help"
-pip freeze
-python --version
+python3.9 pip freeze
+python3.9 --version
 
 echo "BUILD START"
-python -m pip install -r requirements.txt
+python3.9 -m pip install -r requirements.txt
 
 echo "Make Migration"
-python manage.py makemigrations --noinput
-python manage.py migrate --noinput
+python3.9 manage.py makemigrations --noinput
+python3.9 manage.py migrate --noinput
 
 echo "Collect Static"
-python manage.py collectstatic
+python3.9 manage.py collectstatic
 
 echo "Build process completed"
