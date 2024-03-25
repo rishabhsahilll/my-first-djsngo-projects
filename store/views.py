@@ -10,19 +10,18 @@ from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.decorators import login_required
 import cloudinary
 from cloudinary.uploader import upload
+from dotenv import load_dotenv
 import os
-import environ
 
 # .env file ka path set karein
-env = environ.Env()
+load_dotenv()
 
 # Cloudinary configuration
 cloudinary.config(
     cloud_name="rishabh-insta",
-    # api_key=env('IMG_API_KEY'),
-    # api_secret=env('IMG_API_SECRET')
-    api_key='188728799314739',
-    api_secret='Vuog68Ts8G7f1X-pDnd5bd0n480'
+    api_key=os.environ.get('IMG_API_KEY'),
+    api_secret=os.environ.get('IMG_API_SECRET')
+
 )
 
 # Create your views here.
